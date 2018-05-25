@@ -41,22 +41,23 @@ plt.title("Transformada")
 plt.xlabel("f")
 plt.ylabel("ft")
 plt.savefig("fourier.png")
+plt.clf()
 
 for i in fff:
-    if(fff[i]>1000):
-        fff[i]=0
+    if(i>1000):
+        i=0
 
+fffi = np.zeros(n)
 for k in range(n):
     g = 0
     for nn in range(n-1):
         w = nn/float(n)*dt
         m = np.exp(1j*2.0*w*k)
         g += y[k]*m
-    fff[k] = g
+    fffi[k] = g
     
-plt.plot(t,y)
+plt.plot(t,fffi)
 plt.title("Transformada inversa vs t")
 plt.xlabel("t")
 #plt.ylabel("y")
 plt.savefig("filtro.png")
-plt.clf()
