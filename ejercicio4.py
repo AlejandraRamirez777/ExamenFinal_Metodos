@@ -24,3 +24,39 @@ plt.title("Senal en funcion de t")
 plt.xlabel("t")
 plt.ylabel("y")
 plt.savefig("senal.png")
+plt.clf()
+
+fff = np.zeros(n)
+
+for k in range(n):
+    g = 0
+    for nn in range(n-1):
+        w = nn/float(n)*dt
+        m = np.exp(-1j*2.0*w*k)
+        g += y[k]*m
+    fff[k] = g
+    
+plt.plot(t,fff)
+plt.title("Transformada")
+plt.xlabel("f")
+plt.ylabel("ft")
+plt.savefig("fourier.png")
+
+for i in fff:
+    if(fff[i]>1000):
+        fff[i]=0
+
+for k in range(n):
+    g = 0
+    for nn in range(n-1):
+        w = nn/float(n)*dt
+        m = np.exp(1j*2.0*w*k)
+        g += y[k]*m
+    fff[k] = g
+    
+plt.plot(t,y)
+plt.title("Transformada inversa vs t")
+plt.xlabel("t")
+#plt.ylabel("y")
+plt.savefig("filtro.png")
+plt.clf()
