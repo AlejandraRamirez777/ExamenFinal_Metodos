@@ -42,8 +42,9 @@ yy = np.array([])
 zz = np.array([])
 
 xx = np.append(xx,x)
-yy = np.append(yy,x)
-zz = np.append(zz,x)
+yy = np.append(yy,y)
+zz = np.append(zz,z)
+
 
 while(t<5.0):
     
@@ -55,16 +56,20 @@ while(t<5.0):
     y = yf
     z = zf
     
+    xx = np.append(xx,x)
+    yy = np.append(yy,y)
+    zz = np.append(zz,z)
+    
     t += dt
 
-plt.plot(y,x)
+plt.plot(yy,xx)
 plt.title("x vs y")
 plt.xlabel("y")
 plt.ylabel("x")
 plt.savefig("xy.png")
 plt.clf()
 
-plt.plot(z,x)
+plt.plot(zz,xx)
 plt.title("x vs z")
 plt.xlabel("y")
 plt.ylabel("x")
