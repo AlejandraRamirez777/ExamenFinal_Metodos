@@ -19,6 +19,9 @@ y = np.sin(2 * np.pi * f * t) + np.cos(2 * np.pi * f * t * t)
 noise = 1.4*(np.random.rand(n)+0.7)
 y  =  y + noise
 
+fres = np.fft.fftfreq(n,dt)
+#fres = np.fft.fttshift(fre)
+
 plt.plot(t,y)
 plt.title("Senal en funcion de t")
 plt.xlabel("t")
@@ -36,7 +39,7 @@ for k in range(n):
         g += y[k]*m
     fff[k] = g
     
-plt.plot(t,fff)
+plt.plot(fres,fff)
 plt.title("Transformada")
 plt.xlabel("f")
 plt.ylabel("ft")
@@ -56,7 +59,7 @@ for k in range(n):
         g += y[k]*m
     fffi[k] = g
     
-plt.plot(t,fffi)
+plt.plot(fres,fffi)
 plt.title("Transformada inversa vs t")
 plt.xlabel("t")
 #plt.ylabel("y")

@@ -9,7 +9,11 @@
 
 import numpy as np
 
+oo = 10
+bb = 2.67
+rr = 28.0
 
 
+def 
 
 
