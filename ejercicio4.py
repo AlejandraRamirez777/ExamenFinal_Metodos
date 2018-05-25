@@ -39,6 +39,7 @@ for k in range(n):
         g += y[k]*m
     fff[k] = g
     
+plt.clf()   
 plt.plot(fres,fff)
 plt.title("Transformada")
 plt.xlabel("f")
@@ -58,7 +59,8 @@ for k in range(n):
         m = np.exp(1j*2.0*w*k)
         g += y[k]*m
     fffi[k] = g
-    
+
+plt.clf()
 plt.plot(fres,fffi)
 plt.title("Transformada inversa vs t")
 plt.xlabel("t")
